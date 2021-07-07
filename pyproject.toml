@@ -6,6 +6,9 @@ authors = ["Luis Giraldo <luis.giraldo.gonzalez@gmail.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.8"
+requests = "^2.25.1"
+beautifulsoup4 = "^4.9.3"
+DateTime = "^4.3"
 
 [tool.poetry.dev-dependencies]
 

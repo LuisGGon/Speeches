@@ -1,7 +1,7 @@
 # Here I will try to learn how to make Web Scrapping
 
 # import libraries
-
+import datetime
 import requests
 from bs4 import BeautifulSoup
 
@@ -19,10 +19,11 @@ soup = BeautifulSoup(page.content, 'html.parser')
 date_box = soup.find('span', attrs={'class': 'date-display-single'})
 
 date = date_box.text.strip()  # strip() is used to remove starting and trailing
-date = date.split('/')
+date = datetime.datetime.strptime(date, '%d/%m/%Y').date()
 
 # finding the title of the speech
 title_box = soup.find('h1', attrs={'class': 'node-title'})
 
 title = title_box.text.strip()
 print(title)
+
