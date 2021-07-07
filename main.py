@@ -14,3 +14,15 @@ page = requests.get(quote_page)
 
 # parse the html using beautiful soup and store in variable `soup`
 soup = BeautifulSoup(page.content, 'html.parser')
+
+# finding the date of the speech
+date_box = soup.find('span', attrs={'class': 'date-display-single'})
+
+date = date_box.text.strip()  # strip() is used to remove starting and trailing
+date = date.split('/')
+
+# finding the title of the speech
+title_box = soup.find('h1', attrs={'class': 'node-title'})
+
+title = title_box.text.strip()
+print(title)
