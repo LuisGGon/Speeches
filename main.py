@@ -19,7 +19,7 @@ soup = BeautifulSoup(page.content, 'html.parser')
 date_box = soup.find('span', attrs={'class': 'date-display-single'})
 
 date = date_box.text.strip()  # strip() is used to remove starting and trailing
-date = datetime.datetime.strptime(date, '%d/%m/%Y').date()
+date_d = datetime.datetime.strptime(date, '%d/%m/%Y').date()
 
 # finding the title of the speech
 title_box = soup.find('h1', attrs={'class': 'node-title'})
@@ -27,3 +27,5 @@ title_box = soup.find('h1', attrs={'class': 'node-title'})
 title = title_box.text.strip()
 print(title)
 
+discourse = {'Date': date, 'Title': title}
+print(discourse)
